@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>[Thực hành] Funny circles</title>
+	<script type="text/javascript" src="Cricle.js"></script>
+	<style type="text/css">
+		html, body {
+			padding: 0;
+			background: #f6f6f6;
+		}
+		#myCanvas {
+			border:1px solid #ddd;
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<p>[Thực hành] Funny circles</p>
+	<canvas id="myCanvas" width="1368" height="768"></canvas>
+	<script type="text/javascript">
+		function getRandomHex(){
+			return Math.floor(Math.random()*255);
+		}
+		function getRandomColor(){
+			let red = getRandomHex();
+			let green = getRandomHex();
+			let blue = getRandomHex();
+			return "rgb(" + red + "," + blue + "," + green +")";
+		}
+
+		let canvas = document.getElementById("myCanvas");
+		let ctx    = canvas.getContext("2d");
+		for(let i = 0; i < 30; i++){
+			let radius = Math.floor(Math.random()*100-5)+5;
+		    let color = getRandomColor();
+		    let x = Math.random()*canvas.width;
+		    let y = Math.random()*canvas.height;
+		    let circle= new Cricle(x, y, radius, color);
+    		circle.draw(ctx);
+    	}
+	</script>
+</body>
+</html>
